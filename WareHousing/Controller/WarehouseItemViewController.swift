@@ -55,6 +55,29 @@ class WarehouseItemViewController: UITableViewController {
     
     //MARK - Add New Items
     @IBAction func AddNewItem(_ sender: UIBarButtonItem) {
+        
+        var newItemTitle = UITextField()
+        
+        let addNewItem = Item(context: context)
+        
+        let alert = UIAlertController(title: "增加新物品", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "增加", style: .default) { (action) in
+            //what will happne once the user clicks the Add Item button on our UIAlert
+            
+            addNewItem.title = newItemTitle.text!
+            self.itemArray.append(addNewItem)
+            self.tableView.reloadData()
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "增加新物品"
+            newItemTitle = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
     }
     
 
