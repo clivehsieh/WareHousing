@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A72A4CE3209968EA004E6AEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A72A4CE2209968EA004E6AEB /* Default-568h@2x.png */; };
+		A72BB66C2099768900694C18 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A72BB66A2099768900694C18 /* DataModel.xcdatamodeld */; };
 		A7C39CC1209034A800E54531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C39CC0209034A800E54531 /* AppDelegate.swift */; };
-		A7C39CC3209034A800E54531 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C39CC2209034A800E54531 /* ViewController.swift */; };
+		A7C39CC3209034A800E54531 /* WarehouseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C39CC2209034A800E54531 /* WarehouseItemViewController.swift */; };
 		A7C39CC6209034A800E54531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C39CC4209034A800E54531 /* Main.storyboard */; };
-		A7C39CC9209034A800E54531 /* WareHousing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7C39CC7209034A800E54531 /* WareHousing.xcdatamodeld */; };
 		A7C39CCB209034A900E54531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C39CCA209034A900E54531 /* Assets.xcassets */; };
 		A7C39CCE209034A900E54531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C39CCC209034A900E54531 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A72A4CE2209968EA004E6AEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A72BB66B2099768900694C18 /* Item.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Item.xcdatamodel; sourceTree = "<group>"; };
 		A7C39CBD209034A800E54531 /* WareHousing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WareHousing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C39CC0209034A800E54531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7C39CC2209034A800E54531 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7C39CC2209034A800E54531 /* WarehouseItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseItemViewController.swift; sourceTree = "<group>"; };
 		A7C39CC5209034A800E54531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A7C39CC8209034A800E54531 /* WareHousing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WareHousing.xcdatamodel; sourceTree = "<group>"; };
 		A7C39CCA209034A900E54531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7C39CCD209034A900E54531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7C39CCF209034A900E54531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,9 +39,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A72A4CDC20995D42004E6AEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A72BB66A2099768900694C18 /* DataModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A72A4CDD20995D69004E6AEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7C39CCC209034A900E54531 /* LaunchScreen.storyboard */,
+				A7C39CC4209034A800E54531 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A72A4CDE20995D72004E6AEB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A7C39CC2209034A800E54531 /* WarehouseItemViewController.swift */,
+				A7C39CC0209034A800E54531 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A72A4CE12099659F004E6AEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7C39CCF209034A900E54531 /* Info.plist */,
+				A7C39CCA209034A900E54531 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A7C39CB4209034A800E54531 = {
 			isa = PBXGroup;
 			children = (
+				A72A4CE2209968EA004E6AEB /* Default-568h@2x.png */,
 				A7C39CBF209034A800E54531 /* WareHousing */,
 				A7C39CBE209034A800E54531 /* Products */,
 			);
@@ -56,13 +94,10 @@
 		A7C39CBF209034A800E54531 /* WareHousing */ = {
 			isa = PBXGroup;
 			children = (
-				A7C39CC0209034A800E54531 /* AppDelegate.swift */,
-				A7C39CC2209034A800E54531 /* ViewController.swift */,
-				A7C39CC4209034A800E54531 /* Main.storyboard */,
-				A7C39CCA209034A900E54531 /* Assets.xcassets */,
-				A7C39CCC209034A900E54531 /* LaunchScreen.storyboard */,
-				A7C39CCF209034A900E54531 /* Info.plist */,
-				A7C39CC7209034A800E54531 /* WareHousing.xcdatamodeld */,
+				A72A4CDE20995D72004E6AEB /* Controller */,
+				A72A4CDD20995D69004E6AEB /* View */,
+				A72A4CDC20995D42004E6AEB /* Model */,
+				A72A4CE12099659F004E6AEB /* Supporting Files */,
 			);
 			path = WareHousing;
 			sourceTree = "<group>";
@@ -126,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C39CCE209034A900E54531 /* LaunchScreen.storyboard in Resources */,
+				A72A4CE3209968EA004E6AEB /* Default-568h@2x.png in Resources */,
 				A7C39CCB209034A900E54531 /* Assets.xcassets in Resources */,
 				A7C39CC6209034A800E54531 /* Main.storyboard in Resources */,
 			);
@@ -138,8 +174,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C39CC9209034A800E54531 /* WareHousing.xcdatamodeld in Sources */,
-				A7C39CC3209034A800E54531 /* ViewController.swift in Sources */,
+				A7C39CC3209034A800E54531 /* WarehouseItemViewController.swift in Sources */,
+				A72BB66C2099768900694C18 /* DataModel.xcdatamodeld in Sources */,
 				A7C39CC1209034A800E54531 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4VM62W4KJ;
-				INFOPLIST_FILE = WareHousing/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WareHousing/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4VM62W4KJ;
-				INFOPLIST_FILE = WareHousing/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WareHousing/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,13 +376,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A7C39CC7209034A800E54531 /* WareHousing.xcdatamodeld */ = {
+		A72BB66A2099768900694C18 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A7C39CC8209034A800E54531 /* WareHousing.xcdatamodel */,
+				A72BB66B2099768900694C18 /* Item.xcdatamodel */,
 			);
-			currentVersion = A7C39CC8209034A800E54531 /* WareHousing.xcdatamodel */;
-			path = WareHousing.xcdatamodeld;
+			currentVersion = A72BB66B2099768900694C18 /* Item.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
