@@ -7,33 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WarehouseItemViewController: UITableViewController {
 
-//    let itemArray = ["衛生紙", "餐巾紙", "捲筒衛生紙", "燈泡"]
+    let realm = try! Realm()
     
-    var itemArray = [Item]()
-
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var item : Results<PackagedItem>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let newItem = Item(context: context)
-        newItem.title = "衛生紙"
-        itemArray.append(newItem)
-
-        let newItem2 = Item(context: context)
-        newItem2.title = "餐巾紙"
-        itemArray.append(newItem2)
-
-        let newItem3 = Item(context: context)
-        newItem3.title = "捲筒衛生紙"
-        itemArray.append(newItem3)
-
-        let newItem4 = Item(context: context)
-        newItem4.title = "燈泡"
-        itemArray.append(newItem4)
+        loadItems()
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
     
     //MARK - Tableview Datasource Methods
@@ -42,14 +29,14 @@ class WarehouseItemViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WarehouseItemCell", for: indexPath)
         
-        cell.textLabel?.text = itemArray[indexPath.row].title
+        cell.textLabel?.text = item?[indexPath.row].title ?? "No item is listed"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return itemArray.count
+        return item?.count ?? 1
     
     }
     
@@ -57,29 +44,66 @@ class WarehouseItemViewController: UITableViewController {
     @IBAction func AddNewItem(_ sender: UIBarButtonItem) {
         
         var newItemTitle = UITextField()
+        var newItemShortDescription = UITextField()
         
-        let addNewItem = Item(context: context)
+        let addNewItem = PackagedItem()
         
         let alert = UIAlertController(title: "增加新物品", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "增加", style: .default) { (action) in
+        let actionAdd = UIAlertAction(title: "增加", style: .default) { (action) in
             //what will happne once the user clicks the Add Item button on our UIAlert
             
             addNewItem.title = newItemTitle.text!
-            self.itemArray.append(addNewItem)
+            addNewItem.shortDescription = newItemShortDescription.text!
+            self.tableView.reloadData()
+            self.saveItem(item: addNewItem)
+            
+        }
+        
+        let actionCancel = UIAlertAction(title: "取消", style: .default) { (action) in
             self.tableView.reloadData()
         }
         
         alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "增加新物品"
+            alertTextField.placeholder = "新物品名稱"
             newItemTitle = alertTextField
         }
         
-        alert.addAction(action)
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "新物品簡介"
+            newItemShortDescription = alertTextField
+        }
+        
+        alert.addAction(actionAdd)
+        alert.addAction(actionCancel)
         present(alert, animated: true, completion: nil)
         
     }
     
-
+    //MARK - Model Manipulation Methods
+    
+    func saveItem(item: PackagedItem){
+    
+        do {
+            try realm.write {
+                realm.add(item)
+                
+            }
+        
+        } catch {
+            print("Error saving context\(error)")
+        }
+    
+        self.tableView.reloadData()
+    }
+    
+    func loadItems() {
+        
+        item  = realm.objects(PackagedItem.self)
+        
+        tableView.reloadData()
+            
+        }
+    
 }
 
