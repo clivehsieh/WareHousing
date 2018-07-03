@@ -12,5 +12,7 @@ import RealmSwift
 class PackagedItem: Object {
     @objc dynamic var title = String()
     @objc dynamic var shortDescription = String()
+//    let stores = List<Store>()
+//    let relatedHouseholdItem = LinkingObjects(fromType: HouseholdItem.self, property: "packagedItems")
     
 }
