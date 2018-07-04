@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class WarehouseItemViewController: UITableViewController {
+class PackagedItemViewController: UITableViewController {
 
     let realm = try! Realm()
     
@@ -20,14 +20,14 @@ class WarehouseItemViewController: UITableViewController {
 
         loadItems()
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
     
     //MARK - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WarehouseItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PackagedItemCell", for: indexPath)
         
         cell.textLabel?.text = item?[indexPath.row].title ?? "No item is listed"
         
@@ -39,8 +39,8 @@ class WarehouseItemViewController: UITableViewController {
         return item?.count ?? 1
     
     }
+     //MARK - Add New Items
     
-    //MARK - Add New Items
     @IBAction func AddNewItem(_ sender: UIBarButtonItem) {
         
         var newItemTitle = UITextField()

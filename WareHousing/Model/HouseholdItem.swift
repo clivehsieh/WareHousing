@@ -9,13 +9,12 @@
 import Foundation
 import RealmSwift
 
-class HouseholdItem {
-    @objc dynamic var name = String()
+class HouseholdItem: Object {
+    @objc dynamic var title = String()
+    @objc dynamic var shortDescription = String()
     @objc dynamic var minimumQuantity = 0
     @objc dynamic var currentQuantity = 0
     @objc dynamic var sufficientQuantity = false
-    let packagedItems = List<PackagedItem>()
-    
+//    let packagedItems = List<PackagedItem>()
+
 }
-
-

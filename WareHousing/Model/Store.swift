@@ -9,7 +9,8 @@
 import Foundation
 import RealmSwift
 
-class Store {
-    @objc dynamic var store = String()
-    let packageItems = LinkingObjects(fromType: PackagedItem.self, property: "store")
+class Store: Object {
+    @objc dynamic var title = String()
+    @objc dynamic var shortDescription = String()
+//    let packageItems = LinkingObjects(fromType: PackagedItem.self, property: "store")
 }
